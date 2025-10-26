@@ -2,7 +2,6 @@ from flask import Flask, render_template, request
 import requests
 import json
 import pandas as pd
-import ssl
 from datetime import datetime, timedelta
 
 
@@ -52,3 +51,7 @@ def api_el():
 
     table_data = df.to_html(columns=["time_start", "SEK_per_kWh"], classes="table p-5", justify="left")
     return render_template("elpriser.html", price=table_data, year=year, month=month, day=day, area=area)
+
+@app.errorhandler(404)
+def page_not_found():
+    return render_template("error404.html")
