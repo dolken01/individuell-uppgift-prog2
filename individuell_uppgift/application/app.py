@@ -53,5 +53,5 @@ def api_el():
     return render_template("elpriser.html", price=table_data, year=year, month=month, day=day, area=area)
 
 @app.errorhandler(404)
-def page_not_found():
+def page_not_found(e):
     return render_template("error404.html")
