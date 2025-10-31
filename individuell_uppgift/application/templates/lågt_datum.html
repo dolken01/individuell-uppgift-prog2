@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}Sidan hittades inte{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card text-center shadow-sm">
+                <div class="card-body py-5">
+
+                    <h1 class="display-6 mb-3 text-danger">Datum för långt bak</h1>
+
+                    <p class="lead mb-4">
+                        Hoppsan! Du har sökt på ett datum för långt bak. Du kan inte söka på elpriser före 2022-11-01.
+                    </p>
+
+                    <a href="{{ url_for('index') }}" class="btn btn-primary">
+                        Tillbaka till startsidan
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
