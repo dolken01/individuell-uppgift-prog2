@@ -4,6 +4,6 @@
 <div class="container">
     <h1>Elpriser för {{ year }}-{{ month }}-{{ day }} i {{ area }}</h1>
     {{ price|safe }}
-    <a href="{{ url_for('form') }}" class="btn btn-secondary mt-3">Tillbaka till formuläret</a>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Tillbaka till formuläret</a>
 </div>
 {% endblock %}

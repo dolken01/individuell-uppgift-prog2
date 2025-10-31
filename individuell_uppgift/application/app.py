@@ -12,11 +12,6 @@ def index():
     """ The main page """
     return render_template("index.html") 
 
-@app.route("/form")
-def form():
-    """ Create route /form """
-
-    return render_template('form.html')
 
 @app.route("/priser", methods=["GET", "POST"])
 def api_el():
