@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block title %}Sidan hittades inte{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card text-center shadow-sm">
+                <div class="card-body py-5">
+
+                    <h1 class="display-6 mb-3 text-danger">Ogiltigt datumformat</h1>
+
+                    <p class="lead mb-4">
+                        Hoppsan! Ogiltigt datumformat. Du kanske har missat att skriva in något datum.
+                    </p>
+
+                    <a href="{{ url_for('index') }}" class="btn btn-primary">
+                        Tillbaka till startsidan
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

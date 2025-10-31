@@ -24,7 +24,7 @@ def api_el():
     try: # Fångar upp om användaren skriver fel format
         selected_date = datetime.strptime(f"{year}-{month}-{day}", "%Y-%m-%d")
     except ValueError:
-        return "Ogiltigt datumformat.", 400
+        return render_template("fel_datumformat.html"), 400
 
     
     min_date = datetime(2022, 11, 1) # Sätter minsta datum man kan söka på
@@ -49,4 +49,4 @@ def api_el():
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template("error404.html")
+    return render_template("error404.html"), 404
