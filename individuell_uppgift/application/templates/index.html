@@ -1,25 +1,40 @@
 {% extends "layout.html" %}
-{% block title %}form{% endblock %}
+{% block title %}Elpriser{% endblock %}
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <h1 class="text-center">Kolla elpriser för specifik dag</h1>
-                <form action="/priser" method="post">
-                    <label for="year">År:</label><br/>
-                    <input type="text" id="year" name="year"><br/>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center mb-4">Kolla elpriser för specifik dag</h1>
+            <form action="/priser" method="post">
+                <div class="mb-3">
+                    <label for="year" class="form-label">År:</label>
+                    <input type="text" id="year" name="year" class="form-control">
+                </div>
 
-                    <label for="month">Månad:</label><br/>
-                    <input type="text" id="month" name="month"><br/>
+                <div class="mb-3">
+                    <label for="month" class="form-label">Månad:</label>
+                    <input type="text" id="month" name="month" class="form-control">
+                </div>
 
-                    <label for="day">Dag:</label><br/>
-                    <input type="text" id="day" name="day"><br/>
+                <div class="mb-3">
+                    <label for="day" class="form-label">Dag:</label>
+                    <input type="text" id="day" name="day" class="form-control">
+                </div>
 
-                    <label for="area">Prisområde (SE1–SE4):</label><br/>
-                    <input type="text" id="area" name="area"><br/>
+                <div class="mb-3">
+                    <label for="area" class="form-label">Prisområde (SE1–SE4):</label>
+                    <select id="area" name="area" class="form-select">
+                        <option value="SE1">SE1</option>
+                        <option value="SE2">SE2</option>
+                        <option value="SE3">SE3</option>
+                        <option value="SE4">SE4</option>
+                    </select>
+                </div>
 
-                    <button type="submit">Visa priser</button>
-                </form>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Visa priser</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

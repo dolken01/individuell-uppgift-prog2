@@ -7,13 +7,13 @@ from datetime import datetime, timedelta
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/") 
 def index():
     """ The main page """
     return render_template("index.html") 
 
 
-@app.route("/priser", methods=["GET", "POST"])
+@app.route("/priser", methods=["GET", "POST"]) 
 def api_el():
     """ Shows page with prices"""
     year = request.form.get("year")
@@ -40,13 +40,14 @@ def api_el():
     json_data = requests.get(el_url) # Hämtar json
     data = json.loads(json_data.text) # laddar json
     df = pd.DataFrame(data)
-    df["time_start"] = pd.to_datetime(df["time_start"], errors="coerce")
-    df["time_start"] = df["time_start"].dt.strftime("%H:%M")
+    df["time_start"] = pd.to_datetime(df["time_start"], errors="coerce") # Konverterar sträng till datetime
+    df["time_start"] = df["time_start"].dt.strftime("%H:%M") # Formaterar datetime till bara timmar och minuter
     
 
-    table_data = df.to_html(columns=["time_start", "SEK_per_kWh"], classes="table p-5", justify="left")
+    table_data = df.to_html(columns=["time_start", "SEK_per_kWh"], classes="table p-5", justify="left") # Skapar tabell med bara tid och pris
     return render_template("elpriser.html", price=table_data, year=year, month=month, day=day, area=area)
 
-@app.errorhandler(404)
+@app.errorhandler(404) # Hanterar 404 fel
 def page_not_found(e):
+    """ Handles 404 errors by showing a custom error page """
     return render_template("error404.html"), 404
