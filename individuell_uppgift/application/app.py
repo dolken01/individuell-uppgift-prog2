@@ -31,9 +31,9 @@ def api_el():
     max_date = datetime.now().date() + timedelta(days=1) # Sätter högsta datum man kan söka på
 
     if selected_date < min_date: # Felmedalande om användaren skriver för lågt datum
-        return "För lågt datum. Du kan inte söka elpriser före 2022-11-01.", 400
+        return render_template("lågt_datum.html"), 400
     if selected_date.date() > max_date: # Felmedelande om användaren skriver datum för långt fram
-        return "Du kan inte söka elpriser längre fram än imorgon.", 400
+        return render_template("högt_datum.html"), 400
 
 
     el_url = f"https://www.elprisetjustnu.se/api/v1/prices/{year}/{month}-{day}_{area}.json"
