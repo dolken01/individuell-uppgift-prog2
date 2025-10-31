@@ -1,9 +1,30 @@
 {% extends "layout.html" %}
 {% block title %}Elpriser{% endblock %}
+
 {% block content %}
-<div class="container">
-    <h1>Elpriser för {{ year }}-{{ month }}-{{ day }} i {{ area }}</h1>
-    {{ price|safe }}
-    <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Tillbaka till formuläret</a>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+
+                    <h2 class="text-center mb-3">
+                        Elpriser för {{ year }}-{{ month }}-{{ day }} i {{ area }}
+                    </h2>
+
+                    <div class="mt-4">
+                        {{ price|safe }}
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <a href="{{ url_for('index') }}" class="btn btn-secondary">
+                            Tillbaka till formuläret
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

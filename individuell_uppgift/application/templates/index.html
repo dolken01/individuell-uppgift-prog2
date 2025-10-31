@@ -1,25 +1,39 @@
 {% extends "layout.html" %}
-{% block title %}form{% endblock %}
+{% block title %}Elpriser{% endblock %}
+
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <h1 class="text-center">Kolla elpriser för specifik dag</h1>
-                <form action="/priser" method="post">
-                    <label for="year">År:</label><br/>
-                    <input type="text" id="year" name="year"><br/>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h2 class="text-center mb-4">Kolla elpriser för specifik dag</h2>
 
-                    <label for="month">Månad:</label><br/>
-                    <input type="text" id="month" name="month"><br/>
+                    <form action="/priser" method="post">
+                        <div class="mb-3">
+                            <label for="year" class="form-label">År</label>
+                            <input type="text" id="year" name="year" class="form-control" placeholder="t.ex. 2024">
+                        </div>
 
-                    <label for="day">Dag:</label><br/>
-                    <input type="text" id="day" name="day"><br/>
+                        <div class="mb-3">
+                            <label for="month" class="form-label">Månad</label>
+                            <input type="text" id="month" name="month" class="form-control" placeholder="1–12">
+                        </div>
 
-                    <label for="area">Prisområde (SE1–SE4):</label><br/>
-                    <input type="text" id="area" name="area"><br/>
+                        <div class="mb-3">
+                            <label for="day" class="form-label">Dag</label>
+                            <input type="text" id="day" name="day" class="form-control" placeholder="1–31">
+                        </div>
 
-                    <button type="submit">Visa priser</button>
-                </form>
+                        <div class="mb-3">
+                            <label for="area" class="form-label">Prisområde (SE1–SE4)</label>
+                            <input type="text" id="area" name="area" class="form-control" placeholder="SE1, SE2, SE3 eller SE4">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Visa priser</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
